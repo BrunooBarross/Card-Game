@@ -25,3 +25,27 @@ h1 {
     align-items: center;
     flex-wrap: wrap;
 }
+.memory-card{ 
+    position: relative;  
+    width: 117px;
+    height: 146px;   
+    margin-left: 30px;
+    transform-style: preserve-3d;
+}
+.memory-card:active{
+    transform: scale(0.97);
+}
+.memory-card.virar{
+    transform: rotateY(180deg);
+}
+.frente-carta{
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;  
+}
+.fundo-carta{
+    width: 100%;
+    height: 100%;    
+    background-color: blue;
+}
