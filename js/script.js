@@ -24,21 +24,21 @@ for (let i = 0 ; i < qtd_cartas ; i += 2) {
     contador ++;
 }
 
+cartas.sort( function () {
+    return 0.5 - Math.random();
+});
+
 let codigoHTML = '';
 cartas.forEach(img =>{
     codigoHTML += `    
-        <div class="memory-card">
+        <div class="memory-card" onclick="virar(this)"">
             <img class="frente-carta" src="img/${img}">
             <img class="fundo-carta" src="img/front.png">
         </div>        
     `;
 });
-
 cards.innerHTML = codigoHTML;
 
-const pegarcartas = document.querySelectorAll(".memory-card");
-
-function virar(){
-    this.classList.add("virar")
+function virar(elemento){
+    elemento.classList.add("virar")
 }
-pegarcartas.forEach(c => c.addEventListener('click',virar));
