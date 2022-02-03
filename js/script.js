@@ -67,20 +67,19 @@ function verificacao(){
         reset();
     }else{
         verificar = false;
-        bloqueio = true;
-        remover();
+        bloqueio = true;        
+        setTimeout(remover,1000);
     }    
     
 }
-function remover(){   
-    setTimeout(()=>{        
-        primeira.setAttribute("onClick","virar(this)");
-        primeira.classList.remove("virar");
-        segunda.classList.remove("virar");
-        primeira = null;
-        segunda = null;
-        bloqueio = false;            
-    },1000);
+function remover(){            
+    primeira.setAttribute("onClick","virar(this)");
+    primeira.classList.remove("virar");
+    segunda.classList.remove("virar");
+    primeira = null;
+    segunda = null;
+    bloqueio = false;            
+    
 }
 function reset(){
     bloqueio = false;
