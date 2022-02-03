@@ -14,7 +14,7 @@ const imagens = [
     'img4.gif',
     'img5.gif',
     'img6.gif',
-]
+];
 
 let cartas = [];
 contador=0;
@@ -67,10 +67,10 @@ function verificacao(){
         reset();
     }else{
         verificar = false;
-        bloqueio = true;        
+        bloqueio = true;
+        // remover(); caso fosse utilizar a segunda forma de utilizar o timeout        
         setTimeout(remover,1000);
-    }    
-    
+    }     
 }
 function remover(){            
     primeira.setAttribute("onClick","virar(this)");
@@ -78,14 +78,21 @@ function remover(){
     segunda.classList.remove("virar");
     primeira = null;
     segunda = null;
-    bloqueio = false;            
-    
+    bloqueio = false;
+    // 2° forma de fazer o timeout
+    // setTimeout(()=>{        
+    //     primeira.setAttribute("onClick","virar(this)");
+    //     primeira.classList.remove("virar");
+    //     segunda.classList.remove("virar");
+    //     primeira = null;
+    //     segunda = null;
+    //     bloqueio = false;            
+    // },1000);    
 }
 function reset(){
     bloqueio = false;
     primeira.setAttribute("onClick","");
     segunda.setAttribute("onClick","");
     primeira = null;
-    segunda = null;
-    
+    segunda = null;    
 }
