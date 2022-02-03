@@ -31,14 +31,57 @@ cartas.sort( function () {
 let codigoHTML = '';
 cartas.forEach(img =>{
     codigoHTML += `    
-        <div class="memory-card" onclick="virar(this)"">
+        <div class="memory-card" onclick="virar(this)" data-carta="${img}">
             <img class="frente-carta" src="img/${img}">
             <img class="fundo-carta" src="img/front.png">
         </div>        
     `;
 });
+
 cards.innerHTML = codigoHTML;
 
+let primeira;
+let segunda;
+let bloqueio = false;
 function virar(elemento){
-    elemento.classList.add("virar")
+    if(bloqueio == true){
+        return false;
+    }
+    elemento.classList.add("virar");
+    if(primeira ==null){
+        primeira = elemento;
+    }else{
+    segunda = elemento;
+    verificacao();
+    }
+}
+function verificacao(){
+    let verificar;
+    if(primeira.dataset.carta == segunda.dataset.carta){
+        verificar = true;
+        bloqueio = true;
+        reset();
+    }else{
+        verificar = false;
+        bloqueio = true;
+        remover();
+    }    
+    
+}
+function remover(){   
+    setTimeout(()=>{        
+        primeira.classList.remove("virar");
+        segunda.classList.remove("virar");
+        primeira = null;
+        segunda = null;
+        bloqueio = false;            
+    },1000);
+}
+function reset(){
+    bloqueio = false;
+    primeira.setAttribute("onClick","");
+    segunda.setAttribute("onClick","");
+    primeira = null;
+    segunda = null;
+    
 }
