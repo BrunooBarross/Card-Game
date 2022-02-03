@@ -43,6 +43,7 @@ cards.innerHTML = codigoHTML;
 let primeira;
 let segunda;
 let bloqueio = false;
+let contacliques = 0;
 function virar(elemento){
     if(bloqueio == true){
         return false;
@@ -50,9 +51,12 @@ function virar(elemento){
     elemento.classList.add("virar");
     if(primeira ==null){
         primeira = elemento;
+        primeira.setAttribute("onClick","");
+        contacliques += 1;
     }else{
-    segunda = elemento;
-    verificacao();
+        segunda = elemento;
+        verificacao();
+        contacliques += 1;
     }
 }
 function verificacao(){
@@ -70,6 +74,7 @@ function verificacao(){
 }
 function remover(){   
     setTimeout(()=>{        
+        primeira.setAttribute("onClick","virar(this)");
         primeira.classList.remove("virar");
         segunda.classList.remove("virar");
         primeira = null;
