@@ -26,7 +26,6 @@ h1 {
     flex-wrap: wrap;
     margin-left: 122px;
     margin-right: 116px;
-    background-color: aqua;
 }
 .memory-card{ 
     display: flex;
