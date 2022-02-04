@@ -40,7 +40,7 @@ cartas.forEach(img =>{
 
 cards.innerHTML = codigoHTML;
 
-let primeira;
+let primeira = null;
 let segunda;
 let bloqueio = false;
 let contacliques = 0;
@@ -53,10 +53,12 @@ function virar(elemento){
         primeira = elemento;
         primeira.setAttribute("onClick","");
         contacliques += 1;
+        primeira.classList.add("esconder");
     }else{
         segunda = elemento;
-        verificacao();
-        contacliques += 1;
+        segunda.classList.add("esconder");        
+        contacliques += 1;  
+        verificacao();      
     }
 }
 function verificacao(){
@@ -76,6 +78,8 @@ function remover(){
     primeira.setAttribute("onClick","virar(this)");
     primeira.classList.remove("virar");
     segunda.classList.remove("virar");
+    primeira.classList.remove("esconder");
+    segunda.classList.remove("esconder");
     primeira = null;
     segunda = null;
     bloqueio = false;

@@ -60,6 +60,9 @@ h1 {
     width: 100px;
     height: 100px;      
 }
+.esconder img:nth-child(2){
+    display: none;
+}
 
 @media (max-width: 614px) {	
     body{
