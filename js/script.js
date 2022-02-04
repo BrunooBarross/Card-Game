@@ -16,6 +16,10 @@ const imagens = [
     'img6.gif',
 ];
 
+imagens.sort( function () {
+    return 0.5 - Math.random();
+});
+
 let cartas = [];
 contador=0;
 for (let i = 0 ; i < qtd_cartas ; i += 2) {
