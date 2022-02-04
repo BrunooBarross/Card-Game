@@ -44,6 +44,7 @@ let primeira = null;
 let segunda;
 let bloqueio = false;
 let contacliques = 0;
+let contafinalizar = 0;
 function virar(elemento){
     if(bloqueio == true){
         return false;
@@ -93,10 +94,19 @@ function remover(){
     //     bloqueio = false;            
     // },1000);    
 }
+
 function reset(){
     bloqueio = false;
     primeira.setAttribute("onClick","");
     segunda.setAttribute("onClick","");
     primeira = null;
-    segunda = null;    
+    segunda = null; 
+    contafinalizar += 1;
+    setTimeout(()=>{        
+        if(contafinalizar *2 === qtd_cartas){
+            alert ("Você ganhou em "+ contacliques +" jogadas!");
+        }                
+    },100);    
+
+    
 }
