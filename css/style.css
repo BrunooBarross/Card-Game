@@ -24,14 +24,26 @@ h1 {
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    margin-left: 122px;
+    margin-right: 116px;
+    background-color: aqua;
 }
 .memory-card{ 
-    position: relative;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    margin-top: 34px;
+
     width: 117px;
     height: 146px;   
     margin-left: 30px;
+
+    background-color: #A7E9AF;
+    border-radius: 5px;
+
     transform-style: preserve-3d;
-    transition: 0.5s;
+    transition: 0.5s;    
 }
 .memory-card:active{
     transform: scale(0.97);
@@ -42,11 +54,28 @@ h1 {
 .frente-carta{
     transform: rotateY(180deg);
     position: absolute;
-    width: 100%;
-    height: 100%;  
+    width: 100px;
+    height: 100px;  
 }
 .fundo-carta{
-    width: 100%;
-    height: 100%;    
-    background-color: blue;
+    width: 100px;
+    height: 100px;      
+}
+
+@media (max-width: 614px) {	
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+   .cards{
+       flex-direction: column;
+       margin-left: 0px;
+       margin-right: 0px;
+   }    
+   .memory-card{
+       margin-left: 0px;
+   } 
+   
 }
