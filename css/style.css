@@ -78,6 +78,9 @@ h1 {
         align-items: center;
         justify-content: center;
     }
+    .div-relogio{        
+        margin-right: 0;        
+    }
    .cards{
        flex-direction: column;
        margin-left: 0px;
