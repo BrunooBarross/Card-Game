@@ -5,7 +5,6 @@ while( qtd_cartas < 4 || qtd_cartas > 14 || qtd_cartas%2 != 0 ) {
     qtd_cartas = prompt("Digite um número par de cartas entre 4 e 14");
     qtd_cartas = parseInt(qtd_cartas);
 }
-
 const imagens = [
     'img0.gif',
     'img1.gif',
@@ -49,16 +48,20 @@ let segunda;
 let bloqueio = false;
 let contacliques = 0;
 let contafinalizar = 0;
+let intervaloRelogio = null;
 function virar(elemento){
     if(bloqueio == true){
         return false;
     }
     elemento.classList.add("virar");
-    if(primeira ==null){
+    if(primeira == null){
         primeira = elemento;
         primeira.setAttribute("onClick","");
         contacliques += 1;
         primeira.classList.add("esconder");
+        if(intervaloRelogio == null){
+        iniciarRelogio();
+        }
     }else{
         segunda = elemento;
         segunda.classList.add("esconder");        
@@ -98,7 +101,6 @@ function remover(){
     //     bloqueio = false;            
     // },1000);    
 }
-
 function reset(){
     bloqueio = false;
     primeira.setAttribute("onClick","");
@@ -107,10 +109,20 @@ function reset(){
     segunda = null; 
     contafinalizar += 1;
     setTimeout(()=>{        
-        if(contafinalizar *2 === qtd_cartas){
-            alert ("Você ganhou em "+ contacliques +" jogadas!");
-        }                
-    },100);    
+        if(contafinalizar *2 === qtd_cartas){            
+            alert ("Você ganhou em "+ contacliques +" jogadas!"
+            + "\n"+"Tempo de jogo: "+valorRelogio+" segundos"); 
+            clearInterval(intervaloRelogio);  
+        }
+    },100);  
+}
 
-    
+let valorRelogio;
+const relogio = document.querySelector(".relogio");
+function iniciarRelogio(){
+    intervaloRelogio = setInterval(aumentarContagem, 1000);
+}
+function aumentarContagem() {    
+      relogio.innerHTML = parseInt(relogio.innerHTML) + 1; 
+      valorRelogio = parseInt(relogio.innerHTML);
 }
