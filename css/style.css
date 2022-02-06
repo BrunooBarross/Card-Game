@@ -1,3 +1,10 @@
+.div-relogio{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50%;
+    color: #75B79E;
+    font-size: 20px;
+}
 h1 {
     font-family: Roboto;
     font-size: 56px;
