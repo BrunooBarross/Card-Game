@@ -40,8 +40,8 @@ function iniciarJogo(){
     cartas.forEach(img =>{
         codigoHTML += `    
             <div class="memory-card" onclick="virar(this)" data-carta="${img}">
-                <img class="frente-carta" src="img/${img}">
-                <img class="fundo-carta" src="img/front.png">
+                <img class="frente-carta" data-identifier="front-face" src="img/${img}">
+                <img class="fundo-carta" data-identifier="back-face" src="img/front.png">
             </div>        
         `;
     });
@@ -124,23 +124,15 @@ function reset(){
             if(jogar === "sim" || jogar === "Sim" || jogar === "s" || jogar == "S"){
                 relogio.innerHTML = 0;
                 contafinalizar = 0;
-                cartas.splice(0, cartas.length);
-                contafinalizar = 0;
+                contacliques = 0;
+                cartas.splice(0, cartas.length);                
                 iniciarJogo();
             }else if(jogar === "nao" || jogar === "Nao" || jogar === "n" || jogar == "N" || jogar === "não" || jogar === "Não"){
                 window.close();
-            }else{
-                jogar = prompt('Por favor! Digite: "Sim" ou "Não"'); 
-                relogio.innerHTML = 0;
-                contafinalizar = 0;
-                cartas.splice(0, cartas.length);
-                contafinalizar = 0;
-                iniciarJogo();               
-            }            
+            }  
         }
     },100);  
 }
-
 let valorRelogio;
 const relogio = document.querySelector(".relogio");
 function iniciarRelogio(){
