@@ -125,11 +125,17 @@ function reset(){
                 relogio.innerHTML = 0;
                 contafinalizar = 0;
                 cartas.splice(0, cartas.length);
+                contafinalizar = 0;
                 iniciarJogo();
             }else if(jogar === "nao" || jogar === "Nao" || jogar === "n" || jogar == "N" || jogar === "não" || jogar === "Não"){
                 window.close();
             }else{
-                jogar = prompt('Por favor! Digite: "Sim" ou "Não"');
+                jogar = prompt('Por favor! Digite: "Sim" ou "Não"'); 
+                relogio.innerHTML = 0;
+                contafinalizar = 0;
+                cartas.splice(0, cartas.length);
+                contafinalizar = 0;
+                iniciarJogo();               
             }            
         }
     },100);  
